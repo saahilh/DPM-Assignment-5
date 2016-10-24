@@ -29,7 +29,6 @@ public class Lab5 {
 	// Color sensor port connected to input S2
 	private static final EV3LargeRegulatedMotor leftMotor = new EV3LargeRegulatedMotor(LocalEV3.get().getPort("C"));
 	private static final EV3LargeRegulatedMotor rightMotor = new EV3LargeRegulatedMotor(LocalEV3.get().getPort("D"));
-	private static final EV3LargeRegulatedMotor clawMotor = new EV3LargeRegulatedMotor(LocalEV3.get().getPort("B"));
 	private static final Port usPort = LocalEV3.get().getPort("S1");		
 	private static final Port colorPort = LocalEV3.get().getPort("S4");		
 
@@ -68,7 +67,7 @@ public class Lab5 {
 		odometer.start();
 
 		//Create motors object
-		Motors motors = new Motors(leftMotor, rightMotor, clawMotor, WHEEL_RADIUS, TRACK);
+		Motors motors = new Motors(leftMotor, rightMotor, WHEEL_RADIUS, TRACK);
 
 		//Create wallfolling controller
 		UltrasonicController pController = new PController(motors);

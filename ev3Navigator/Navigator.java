@@ -14,7 +14,6 @@ public class Navigator extends Thread{
 
 	private EV3LargeRegulatedMotor leftMotor;
 	private EV3LargeRegulatedMotor rightMotor;
-	private EV3LargeRegulatedMotor clawMotor;
 
 	private double wheelRadius;
 	private double axleLength;
@@ -45,7 +44,6 @@ public class Navigator extends Thread{
 		odometer 					= pOdometer;
 		leftMotor 					= pMotors.getLeftMotor();
 		rightMotor 					= pMotors.getRightMotor();
-		clawMotor 					= pMotors.getClawMotor();
 		wheelRadius 				= pMotors.getWheelRadius();
 		axleLength 					= pMotors.getAxleLength();
 		objectDetector 				= pObjectDetector;
@@ -78,8 +76,7 @@ public class Navigator extends Thread{
 		}
 		catch(FoundBlockException e)
 		{
-			//capture the block and travel to the last coordinate point, which is always the end zone
-			captureBlock();
+			//capture the block and travel to the last coordinate point, which is always the end zone;
 			double pX = coordinates.get(coordinates.size()-1).getX();
 			double pY = coordinates.get(coordinates.size()-1).getY();
 			while(Math.abs(pX- odometer.getX()) > locationError || Math.abs(pY - odometer.getY()) > locationError)
@@ -239,14 +236,6 @@ public class Navigator extends Thread{
 		}
 
 		objectDetector.processObject();
-	}
-
-	private void captureBlock()
-	{
-		clawMotor.setSpeed(50);
-		clawMotor.rotate(-80);
-		clawMotor.flt();
-
 	}
 
 

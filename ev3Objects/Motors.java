@@ -9,17 +9,14 @@ public class Motors {
 	
 	private EV3LargeRegulatedMotor leftMotor;
 	private EV3LargeRegulatedMotor rightMotor;
-	private EV3LargeRegulatedMotor clawMotor;
-	
 	private double wheelRadius;
 	private double axleLength;
 	
 	
-	public Motors (EV3LargeRegulatedMotor pLeftMotor, EV3LargeRegulatedMotor pRightMotor, EV3LargeRegulatedMotor pClawMotor, double pWheelRadius, double pAxleLength)
+	public Motors (EV3LargeRegulatedMotor pLeftMotor, EV3LargeRegulatedMotor pRightMotor, double pWheelRadius, double pAxleLength)
 	{
 		leftMotor 					= pLeftMotor;
 		rightMotor 					= pRightMotor;
-		clawMotor 					= pClawMotor;
 		wheelRadius 				= pWheelRadius;
 		axleLength 					= pAxleLength;
 	}
@@ -30,10 +27,6 @@ public class Motors {
 
 	public EV3LargeRegulatedMotor getRightMotor() {
 		return rightMotor;
-	}
-
-	public EV3LargeRegulatedMotor getClawMotor() {
-		return clawMotor;
 	}
 
 	public double getWheelRadius() {
