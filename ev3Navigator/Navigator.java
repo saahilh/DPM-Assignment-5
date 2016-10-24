@@ -106,7 +106,7 @@ public class Navigator extends Thread{
 				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.block)
 					throw new FoundBlockException();
 
-				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.obstacle)
+				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.No_Block)
 				{
 					objectDetector.obstacleAvoider.squareAvoid(10, ObstacleAvoider.DIRECTION.right);
 				}
@@ -216,7 +216,7 @@ public class Navigator extends Thread{
 				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.block)
 					throw new FoundBlockException();
 
-				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.obstacle)
+				if(objectDetector.getCurrentObject() == ObjectDetector.OBJECT_TYPE.No_Block)
 				{
 					leftMotor.rotate(-450, true);
 					rightMotor.rotate(-450, false);
