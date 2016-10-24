@@ -15,7 +15,7 @@ public class ObjectDetector{
 	private UltrasonicPoller ultraSonicPoller;
 	public ObstacleAvoider obstacleAvoider;
 
-	public enum OBJECT_TYPE { block, obstacle } 
+	public enum OBJECT_TYPE { block, No_Block } 
 
 	private float[] colorData;
 	private final int FILTER_OUT = 5;
@@ -85,7 +85,7 @@ public class ObjectDetector{
 	public void processObject()
 	{
 
-		if(ultraSonicPoller.getDistance() <=8  && getCurrentObject() == null)
+		if(ultraSonicPoller.getDistance() <=4  && getCurrentObject() == null)
 		{
 			colorValue.fetchSample(colorData, 0);
 			if(colorData[0]== 2){
@@ -96,7 +96,7 @@ public class ObjectDetector{
 			{
 				Sound.beep();
 				Sound.beep();
-				setCurrentObject(OBJECT_TYPE.obstacle);
+				setCurrentObject(OBJECT_TYPE.No_Block);
 			}
 		}
 	}
